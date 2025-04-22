@@ -4,18 +4,18 @@ import i18next from 'i18next';
 import I18NextHttpBackend from 'i18next-http-backend';
 import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
 document.addEventListener('DOMContentLoaded', () => {
-  const ogUrlMeta = document.head.querySelector<HTMLMetaElement>(
-    'meta[property="og:url"]'
-  );
-  if (ogUrlMeta) {
-    ogUrlMeta.content = window.location.href;
-  } else {
-    // Fallback: create the tag if missing
-    const meta = document.createElement('meta');                             // :contentReference[oaicite:1]{index=1}
-    meta.setAttribute('property', 'og:url');
-    meta.content = window.location.href;                                       // :contentReference[oaicite:2]{index=2}
-    document.head.appendChild(meta);
-  }
+    const ogUrlMeta = document.head.querySelector<HTMLMetaElement>(
+        'meta[property="og:url"]'
+    );
+    if (ogUrlMeta) {
+        ogUrlMeta.content = window.location.href;
+    } else {
+        // Fallback: create the tag if missing
+        const meta = document.createElement('meta');                             // :contentReference[oaicite:1]{index=1}
+        meta.setAttribute('property', 'og:url');
+        meta.content = window.location.href;                                       // :contentReference[oaicite:2]{index=2}
+        document.head.appendChild(meta);
+    }
 });
 
 i18next
@@ -24,7 +24,7 @@ i18next
     .init({
         fallbackLng: 'en',
         debug: false,
-        backend: { loadPath: '/locales/{{lng}}.json' },
+        backend: { loadPath: '/recipe-page/locales/{{lng}}.json' },
     }, () => {
         // Translate all elements with data-i18n
         document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -58,6 +58,6 @@ const languageSelector = document.getElementById('languageSelector') as HTMLSele
 languageSelector?.addEventListener('change', (e) => {
     const select = e.target as HTMLSelectElement;
     changeLanguage(select.value);
-  });
-  
+});
+
 // Language switcher function

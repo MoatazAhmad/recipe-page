@@ -15,10 +15,7 @@
   <meta property="og:description"
     content="Learn how to make a fluffy omelette in just 10 minutes, complete with nutrition facts." />
   <meta property="og:url" content="" id="og-url" />
-  <script>
-    // after the page loads, set OG URL to the full canonical URL
-    document.getElementById('og-url').setAttribute('content', window.location.href);
-  </script>
+  
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Simple Omelette Recipe" />
@@ -70,111 +67,114 @@
   </script>
 </head>
 
-<body>
-  <select onchange="changeLanguage(this.value)">
+<body class="bg-custom-stone-100">
+  <select id="languageSelector">
     <option value="en">English</option>
     <option value="ar">العربية</option>
   </select>
-  
-  <main>
-    <article class="recipe-card">
-      <header>
-        <figure class="img-container">
-          <img src="./src/assets/images/image-omelette.jpeg" alt="Plate with a simple omelette" width="600"
-            height="400">
-          <figcaption data-i18n="recipe.title"></figcaption>
-          <p data-i18n="recipe.description"></p>
+
+  <main class="sm:flex sm:justify-center sm:my-10 ">
+    <article class="recipe-card bg-white sm:w-[60%] lg:w-[40%] sm:rounded-2xl">
+      <header class="mb-4">
+        <figure>
+          <div class="img-container sm:pt-5 sm:px-5">
+            <img class="sm:rounded-xl" src="./src/assets/images/image-omelette.jpeg" alt="Plate with a simple omelette">
+          </div>
+          <figcaption class="text-[35px] font-normal ps-5 pt-5 mb-3 text-custom-stone-900" data-i18n="recipe.title">
+          </figcaption>
+          <p class="text-custom-stone-600 px-5" data-i18n="recipe.description"></p>
         </figure>
       </header>
 
-      <section class="prep-time" aria-labelledby="prep-time-heading">
-        <h2 id="prep-time-heading" data-i18n="prepTime.heading">Preparation time</h2>
-        <ul>
-          <li>
-            <strong data-i18n="prepTime.total.heading">Total : </strong>
+      <section class="prep-time mx-5 p-5 bg-custom-rose-50 rounded-xl mb-4" aria-labelledby="prep-time-heading">
+        <h2 class="text-custom-rose-800 mb-2.5 font-bold" id="prep-time-heading" data-i18n="prepTime.heading"></h2>
+        <ul class="list-disc list-inside custom-marker pl-2 marker:text-custom-rose-800 marker:text-sm">
+          <li class="text-custom-stone-600 mb-1.5">
+            <strong data-i18n="prepTime.total.heading"></strong>
             <span data-i18n="prepTime.total.time">
-              Approximately 10 minutes
             </span>
           </li>
-          <li>
-            <strong data-i18n="prepTime.preparation.heading">Preparation : </strong>
+          <li class="text-custom-stone-600 mb-1.5">
+            <strong data-i18n="prepTime.preparation.heading"></strong>
             <span data-i18n="prepTime.preparation.time">
-              5 minutes
+
             </span>
           </li>
-          <li>
-            <strong data-i18n="prepTime.cooking.heading">Cooking : </strong>
+          <li class="text-custom-stone-600 mb-1.5">
+            <strong data-i18n="prepTime.cooking.heading"></strong>
             <span data-i18n="prepTime.cooking.time">
-              5 minutes
+
             </span>
           </li>
         </ul>
       </section>
 
-      <section class="ingredients" aria-labelledby="ingredients-heading">
-        <h2 id="ingredients-heading" data-i18n="ingredients.heading"></h2>
-        <ul>
-          <li data-i18n="ingredients.list.0"></li>
-          <li data-i18n="ingredients.list.1"></li>
-          <li data-i18n="ingredients.list.2"></li>
-          <li data-i18n="ingredients.list.3"></li>
-          <li data-i18n="ingredients.list.4"></li>
+      <section class="ingredients mx-5 pb-5 border-b border-gray-500" aria-labelledby="ingredients-heading">
+        <h2 class="text-2xl font-medium font-outfit text-custom-brown-800 mb-3" id="ingredients-heading"
+          data-i18n="ingredients.heading"></h2>
+        <ul class="list-disc list-inside custom-marker pl-2 marker:text-custom-brown-800 marker:text-sm">
+          <li class="text-custom-stone-600 mb-1.5" data-i18n="ingredients.list.0"></li>
+          <li class="text-custom-stone-600 mb-1.5" data-i18n="ingredients.list.1"></li>
+          <li class="text-custom-stone-600 mb-1.5" data-i18n="ingredients.list.2"></li>
+          <li class="text-custom-stone-600 mb-1.5" data-i18n="ingredients.list.3"></li>
+          <li class="text-custom-stone-600 mb-1.5" data-i18n="ingredients.list.4"></li>
         </ul>
       </section>
 
-      <div class="instructions" aria-labelledby="instructions-heading">
-        <h2 id="instructions-heading" data-i18n="instructions.heading"></h2>
-        <ul>
-          <li>
+      <section class="instructions mx-5 py-5 border-b border-gray-500" aria-labelledby="instructions-heading">
+        <h2 class="text-2xl font-medium font-outfit text-custom-brown-800 mb-3" id="instructions-heading"
+          data-i18n="instructions.heading"></h2>
+        <ol class="list-decimal marker:font-bold ps-5  marker:text-custom-brown-800 ">
+          <li class="ps-3.5 text-custom-stone-600">
             <strong data-i18n="instructions.steps.0.title"></strong>
             : <span data-i18n="instructions.steps.0.detail"></span>
           </li>
-          <li>
+          <li class="ps-3.5 text-custom-stone-600">
             <strong data-i18n="instructions.steps.1.title"></strong>
             : <span data-i18n="instructions.steps.1.detail"></span>
           </li>
-          <li>
+          <li class="ps-3.5 text-custom-stone-600">
             <strong data-i18n="instructions.steps.2.title"></strong>
             : <span data-i18n="instructions.steps.2.detail"></span>
           </li>
-          <li>
+          <li class="ps-3.5 text-custom-stone-600">
             <strong data-i18n="instructions.steps.3.title"></strong>
             : <span data-i18n="instructions.steps.3.detail"></span>
           </li>
-          <li>
+          <li class="ps-3.5 text-custom-stone-600">
             <strong data-i18n="instructions.steps.4.title"></strong>
             : <span data-i18n="instructions.steps.4.detail"></span>
           </li>
-          <li>
+          <li class="ps-3.5 text-custom-stone-600">
             <strong data-i18n="instructions.steps.5.title"></strong>
             : <span data-i18n="instructions.steps.5.detail"></span>
           </li>
-        </ul>
-      </div>
+        </ol>
+      </section>
 
-      <div class="nutrition" aria-labelledby="nutrition-heading">
-        <h1 data-i18n="nutrition.heading"></h1>
-        <p data-i18n="nutrition.description"></p>
-        <table>
-          <caption>Nutrition per serving (without fillings)</caption>
-          <tr>
-            <th data-i18n="nutrition.values.Calories.name" scope="row"></th>
-            <td data-i18n="nutrition.values.Calories.number"></td>
+      <section class="nutrition mx-5 py-5 border-b border-gray-50" aria-labelledby="nutrition-heading">
+        <h1 class="text-2xl font-medium font-outfit text-custom-brown-800 mb-3" id="nutrition-heading"
+          data-i18n="nutrition.heading"></h1>
+        <p class="text-custom-stone-600 mb-4" data-i18n="nutrition.description"></p>
+        <table class="w-full">
+          <tr class="text-left border-b-1 border-b-custom-stone-600">
+            <th class="ps-5 pb-1.5 text-custom-stone-600" data-i18n="nutrition.values.Calories.name" scope="row"></th>
+            <td class="pb-1.5 font-bold text-custom-brown-800" data-i18n="nutrition.values.Calories.number"></td>
           </tr>
-          <tr>
-            <th data-i18n="nutrition.values.Carbs.name" scope="row"></th>
-            <td data-i18n="nutrition.values.Carbs.number"></td>
+          <tr class="text-left border-b-1 border-b-custom-stone-600">
+            <th class="ps-5 py-1.5 text-custom-stone-600" data-i18n="nutrition.values.Carbs.name" scope="row"></th>
+            <td class="py-1.5 font-bold text-custom-brown-800" data-i18n="nutrition.values.Carbs.number"></td>
           </tr>
-          <tr>
-            <th data-i18n="nutrition.values.Protein.name" scope="row"></th>
-            <td data-i18n="nutrition.values.Protein.number"></td>
+          <tr class="text-left border-b-1 border-b-custom-stone-600">
+            <th class="ps-5 py-1.5 text-custom-stone-600" data-i18n="nutrition.values.Protein.name" scope="row"></th>
+            <td class="py-1.5 font-bold text-custom-brown-800" data-i18n="nutrition.values.Protein.number"></td>
           </tr>
-          <tr>
-            <th data-i18n="nutrition.values.Fat.name" scope="row"></th>
-            <td data-i18n="nutrition.values.Fat.number"></td>
+          <tr class="text-left border-b-1 border-b-custom-stone-600">
+            <th class="ps-5 py-1.5 text-custom-stone-600" data-i18n="nutrition.values.Fat.name" scope="row"></th>
+            <td class="py-1.5 font-bold text-custom-brown-800" data-i18n="nutrition.values.Fat.number"></td>
           </tr>
         </table>
-      </div>
+      </section>
     </article>
   </main>
 
@@ -184,37 +184,7 @@
       Coded by <a href="https://github.com/MoatazAhmad" target="_blank" rel="noopener">Moataz Ahmed</a>.
     </div>
   </footer>
-  <script type="module" src="/src/main.ts"></script>
-  <script src="https://unpkg.com/i18next@23.0.0/i18next.min.js"></script>
-  <script src="https://unpkg.com/i18next-http-backend@1.4.1/i18nextHttpBackend.min.js"></script>
-  <script src="https://unpkg.com/i18next-browser-languagedetector@6.1.4/i18nextBrowserLanguageDetector.min.js"></script>
-  <script>
-    i18next
-      .use(i18nextHttpBackend)
-      .use(i18nextBrowserLanguageDetector)
-      .init({
-        fallbackLng: 'en',
-        debug: false,
-        backend: { loadPath: '/locales/{{lng}}.json' },
-      }, () => {
-        // Translate all elements with data-i18n
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-          const key = el.getAttribute('data-i18n');
-          el.textContent = i18next.t(key);
-        });
-      });
-
-    // Language switcher
-    function changeLanguage(lng) {
-      i18next.changeLanguage(lng).then(() => {
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-          el.textContent = i18next.t(el.getAttribute('data-i18n'));
-        });
-        document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
-        document.documentElement.lang = lng;
-      });
-    }
-  </script>
+  <script type="module" src="/src/main.ts"></script>  
 </body>
 
 </html>

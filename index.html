@@ -6,69 +6,215 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frontend Mentor | Recipe page</title>
+  <meta name="description"
+    content="An easy and quick omelette recipe perfect for any meal, with step-by-step instructions and nutritional info." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Simple Omelette Recipe" />
+  <meta property="og:description"
+    content="Learn how to make a fluffy omelette in just 10 minutes, complete with nutrition facts." />
+  <meta property="og:url" content="" id="og-url" />
+  <script>
+    // after the page loads, set OG URL to the full canonical URL
+    document.getElementById('og-url').setAttribute('content', window.location.href);
+  </script>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Simple Omelette Recipe" />
+  <meta name="twitter:description"
+    content="Learn how to make a fluffy omelette in just 10 minutes, complete with nutrition facts." />
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap"
+    rel="stylesheet">
+
+  <!-- Structured Data: Recipe JSON-LD -->
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "Recipe",
+        "name": "Simple Omelette Recipe",
+        "image": "https://example.com/images/image-omelette.webp",
+        "author": { "@type": "Person", "name": "Moataz Ahmed" },
+        "datePublished": "2025-04-22",
+        "description": "An easy and quick omelette recipe perfect for any meal.",
+        "prepTime": "PT5M",
+        "cookTime": "PT5M",
+        "totalTime": "PT10M",
+        "recipeYield": "1 serving",
+        "recipeIngredient": [
+          "2-3 large eggs",
+          "Salt, to taste",
+          "Pepper, to taste",
+          "1 tablespoon of butter or oil",
+          "Optional fillings: cheese, diced vegetables, cooked meats, herbs"
+        ],
+        "recipeInstructions": [
+          { "@type": "HowToStep", "name": "Beat the eggs", "text": "In a bowl, beat the eggs with salt and pepper..." },
+          { "@type": "HowToStep", "name": "Heat the pan", "text": "Place a non-stick pan over medium heat..." },
+          { "@type": "HowToStep", "name": "Cook the omelette", "text": "Pour in the eggs and cook until set..." },
+          { "@type": "HowToStep", "name": "Add fillings", "text": "Sprinkle fillings over half when edges set..." },
+          { "@type": "HowToStep", "name": "Fold and serve", "text": "Fold over fillings and serve hot." }
+        ],
+        "nutrition": {
+          "@type": "NutritionInformation",
+          "calories": "277 kcal",
+          "carbohydrateContent": "0 g",
+          "proteinContent": "20 g",
+          "fatContent": "22 g"
+        }
+      }
+  </script>
 </head>
 
 <body>
-  <div id="app"></div>
-  <h1 class="bg-amber-700">hey</h1>
-  Simple Omelette Recipe
+  <select onchange="changeLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="ar">العربية</option>
+  </select>
+  
+  <main>
+    <article class="recipe-card">
+      <header>
+        <figure class="img-container">
+          <img src="./src/assets/images/image-omelette.jpeg" alt="Plate with a simple omelette" width="600"
+            height="400">
+          <figcaption data-i18n="recipe.title"></figcaption>
+          <p data-i18n="recipe.description"></p>
+        </figure>
+      </header>
 
-  An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked
-  to perfection, optionally filled with your choice of cheese, vegetables, or meats.
+      <section class="prep-time" aria-labelledby="prep-time-heading">
+        <h2 id="prep-time-heading" data-i18n="prepTime.heading">Preparation time</h2>
+        <ul>
+          <li>
+            <strong data-i18n="prepTime.total.heading">Total : </strong>
+            <span data-i18n="prepTime.total.time">
+              Approximately 10 minutes
+            </span>
+          </li>
+          <li>
+            <strong data-i18n="prepTime.preparation.heading">Preparation : </strong>
+            <span data-i18n="prepTime.preparation.time">
+              5 minutes
+            </span>
+          </li>
+          <li>
+            <strong data-i18n="prepTime.cooking.heading">Cooking : </strong>
+            <span data-i18n="prepTime.cooking.time">
+              5 minutes
+            </span>
+          </li>
+        </ul>
+      </section>
 
-  Preparation time
+      <section class="ingredients" aria-labelledby="ingredients-heading">
+        <h2 id="ingredients-heading" data-i18n="ingredients.heading"></h2>
+        <ul>
+          <li data-i18n="ingredients.list.0"></li>
+          <li data-i18n="ingredients.list.1"></li>
+          <li data-i18n="ingredients.list.2"></li>
+          <li data-i18n="ingredients.list.3"></li>
+          <li data-i18n="ingredients.list.4"></li>
+        </ul>
+      </section>
 
-  Total: Approximately 10 minutes
-  Preparation: 5 minutes
-  Cooking: 5 minutes
+      <div class="instructions" aria-labelledby="instructions-heading">
+        <h2 id="instructions-heading" data-i18n="instructions.heading"></h2>
+        <ul>
+          <li>
+            <strong data-i18n="instructions.steps.0.title"></strong>
+            : <span data-i18n="instructions.steps.0.detail"></span>
+          </li>
+          <li>
+            <strong data-i18n="instructions.steps.1.title"></strong>
+            : <span data-i18n="instructions.steps.1.detail"></span>
+          </li>
+          <li>
+            <strong data-i18n="instructions.steps.2.title"></strong>
+            : <span data-i18n="instructions.steps.2.detail"></span>
+          </li>
+          <li>
+            <strong data-i18n="instructions.steps.3.title"></strong>
+            : <span data-i18n="instructions.steps.3.detail"></span>
+          </li>
+          <li>
+            <strong data-i18n="instructions.steps.4.title"></strong>
+            : <span data-i18n="instructions.steps.4.detail"></span>
+          </li>
+          <li>
+            <strong data-i18n="instructions.steps.5.title"></strong>
+            : <span data-i18n="instructions.steps.5.detail"></span>
+          </li>
+        </ul>
+      </div>
 
-  Ingredients
+      <div class="nutrition" aria-labelledby="nutrition-heading">
+        <h1 data-i18n="nutrition.heading"></h1>
+        <p data-i18n="nutrition.description"></p>
+        <table>
+          <caption>Nutrition per serving (without fillings)</caption>
+          <tr>
+            <th data-i18n="nutrition.values.Calories.name" scope="row"></th>
+            <td data-i18n="nutrition.values.Calories.number"></td>
+          </tr>
+          <tr>
+            <th data-i18n="nutrition.values.Carbs.name" scope="row"></th>
+            <td data-i18n="nutrition.values.Carbs.number"></td>
+          </tr>
+          <tr>
+            <th data-i18n="nutrition.values.Protein.name" scope="row"></th>
+            <td data-i18n="nutrition.values.Protein.number"></td>
+          </tr>
+          <tr>
+            <th data-i18n="nutrition.values.Fat.name" scope="row"></th>
+            <td data-i18n="nutrition.values.Fat.number"></td>
+          </tr>
+        </table>
+      </div>
+    </article>
+  </main>
 
-  2-3 large eggs
-  Salt, to taste
-  Pepper, to taste
-  1 tablespoon of butter or oil
-  Optional fillings: cheese, diced vegetables, cooked meats, herbs
-
-  Instructions
-
-  Beat the eggs: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed.
-  You can add a tablespoon of water or milk for a fluffier texture.
-
-  Heat the pan: Place a non-stick frying pan over medium heat and add butter or oil.
-
-  Cook the omelette: Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure
-  the eggs evenly coat the surface.
-
-  Add fillings (optional): When the eggs begin to set at the edges but are still slightly runny in the
-  middle, sprinkle your chosen fillings over one half of the omelette.
-
-  Fold and serve: As the omelette continues to cook, carefully lift one edge and fold it over the
-  fillings. Let it cook for another minute, then slide it onto a plate.
-
-  Enjoy: Serve hot, with additional salt and pepper if needed.
-
-  Nutrition
-
-  The table below shows nutritional values per serving without the additional fillings.
-
-  Calories
-  277kcal
-
-  Carbs
-  0g
-
-  Protein
-  20g
-
-  Fat
-  22g
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io" target="_blank" rel="noopener">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/MoatazAhmad" target="_blank" rel="noopener">Moataz Ahmed</a>.
+    </div>
+  </footer>
   <script type="module" src="/src/main.ts"></script>
+  <script src="https://unpkg.com/i18next@23.0.0/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-http-backend@1.4.1/i18nextHttpBackend.min.js"></script>
+  <script src="https://unpkg.com/i18next-browser-languagedetector@6.1.4/i18nextBrowserLanguageDetector.min.js"></script>
+  <script>
+    i18next
+      .use(i18nextHttpBackend)
+      .use(i18nextBrowserLanguageDetector)
+      .init({
+        fallbackLng: 'en',
+        debug: false,
+        backend: { loadPath: '/locales/{{lng}}.json' },
+      }, () => {
+        // Translate all elements with data-i18n
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          el.textContent = i18next.t(key);
+        });
+      });
+
+    // Language switcher
+    function changeLanguage(lng) {
+      i18next.changeLanguage(lng).then(() => {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          el.textContent = i18next.t(el.getAttribute('data-i18n'));
+        });
+        document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
+        document.documentElement.lang = lng;
+      });
+    }
+  </script>
 </body>
 
 </html>
